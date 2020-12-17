@@ -57,7 +57,7 @@ ps -ef | grep "supervisord" | grep -v "grep"
 
 http://IP:9001
 
-[](./supervisor/supervisor.jpg)
+[](https://cdn.jsdelivr.net/gh/ghl1024/supervisor-install/supervisor/supervisor.jpg)
 
 ## :triangular_flag_on_post: 安装在`/home/supervisor`下示例
 
@@ -84,17 +84,7 @@ total 1336
 -rw-r--r-- 1 root root    245 Dec 17 19:37 supervisord.service
 
 [root@hayden supervisor]$ sh install_supervisor.sh 
-Processing meld3-2.0.1.tar.gz
-Writing /tmp/easy_install-y6vT9u/meld3-2.0.1/setup.cfg
-Running meld3-2.0.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-y6vT9u/meld3-2.0.1/egg-dist-tmp-Ai63Ax
-zip_safe flag not set; analyzing archive contents...
-Removing /usr/lib/python2.7/site-packages/meld3-2.0.1-py2.7.egg
-Moving meld3-2.0.1-py2.7.egg to /usr/lib/python2.7/site-packages
-meld3 2.0.1 is already the active version in easy-install.pth
-
-Installed /usr/lib/python2.7/site-packages/meld3-2.0.1-py2.7.egg
-Processing dependencies for meld3==2.0.1
-Finished processing dependencies for meld3==2.0.1
+......
 =============================================
 supervisord已启动
 安装目录为：/home/supervisor
@@ -103,15 +93,11 @@ systemd管理服务名称为：supervisord.service
 =============================================
 
 [root@hayden supervisor]$ systemctl status supervisord.service
-● supervisord.service - Process Monitoring and Control Daemon
-   Loaded: loaded (/usr/lib/systemd/system/supervisord.service; enabled; vendor preset: disabled)
+......
    Active: active (running) since Thu 2020-12-17 19:48:15 CST; 14s ago
  Main PID: 11606 (supervisord)
    CGroup: /system.slice/supervisord.service
            └─11606 /usr/bin/python /usr/bin/supervisord -c /home/supervisor/etc/supervisord.conf
-
-Dec 17 19:48:14 hayden systemd[1]: Starting Process Monitoring and Control Daemon...
-Dec 17 19:48:15 hayden systemd[1]: Started Process Monitoring and Control Daemon.
 
 [root@hayden supervisor]$ netstat -tnlp | grep "9001"
 tcp        0      0 0.0.0.0:9001            0.0.0.0:*               LISTEN      11606/python
@@ -145,17 +131,7 @@ total 1336
 -rw-r--r-- 1 root root    245 Dec 17 19:37 supervisord.service
 
 [root@hayden supervisor]$ sh install_supervisor.sh /opt/supervisor
-Processing meld3-2.0.1.tar.gz
-Writing /tmp/easy_install-Il9dVS/meld3-2.0.1/setup.cfg
-Running meld3-2.0.1/setup.py -q bdist_egg --dist-dir /tmp/easy_install-Il9dVS/meld3-2.0.1/egg-dist-tmp-KKp4Ol
-zip_safe flag not set; analyzing archive contents...
-Removing /usr/lib/python2.7/site-packages/meld3-2.0.1-py2.7.egg
-Moving meld3-2.0.1-py2.7.egg to /usr/lib/python2.7/site-packages
-meld3 2.0.1 is already the active version in easy-install.pth
-
-Installed /usr/lib/python2.7/site-packages/meld3-2.0.1-py2.7.egg
-Processing dependencies for meld3==2.0.1
-Finished processing dependencies for meld3==2.0.1
+......
 =============================================
 supervisord已启动
 安装目录为：/opt/supervisor
@@ -164,15 +140,12 @@ systemd管理服务名称为：supervisord.service
 =============================================
 
 [root@hayden supervisor]$ systemctl status supervisord.service
-● supervisord.service - Process Monitoring and Control Daemon
-   Loaded: loaded (/usr/lib/systemd/system/supervisord.service; enabled; vendor preset: disabled)
+......
    Active: active (running) since Thu 2020-12-17 19:58:19 CST; 2min 50s ago
  Main PID: 12548 (supervisord)
    CGroup: /system.slice/supervisord.service
            └─12548 /usr/bin/python /usr/bin/supervisord -c /opt/supervisor/etc/supervisord.conf
 
-Dec 17 19:58:19 hayden systemd[1]: Starting Process Monitoring and Control Daemon...
-Dec 17 19:58:19 hayden systemd[1]: Started Process Monitoring and Control Daemon.
 [root@hayden supervisor]$ netstat -tnlp | grep "9001" | grep -v "grep"
 tcp        0      0 0.0.0.0:9001            0.0.0.0:*               LISTEN      12548/python        
 [root@hayden supervisor]$ ps -ef | grep "supervisord" | grep -v "grep"
