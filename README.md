@@ -22,7 +22,7 @@
 
 ```bash
 cd /root
-wget -c https://github.com/ghl1024/supervisor-install/releases/download/V1.0/supervisor_install.tar.gz
+curl -o ${PWD}/supervisor_install.tar.gz https://github.com/ghl1024/supervisor-install/releases/download/V1.0/supervisor_install.tar.gz
 ```
 
 ### 2.解压
@@ -53,13 +53,19 @@ netstat -tnlp | grep "9001" | grep -v "grep"
 ps -ef | grep "supervisord" | grep -v "grep"
 ```
 
+### 6.浏览器访问
+
+http://IP:9001
+
+[](./supervisor/supervisor.jpg)
+
 ## :triangular_flag_on_post: 安装在`/home/supervisor`下示例
 
 ```bash
 [root@hayden ~]$ pwd
 /root
 
-[root@hayden ~]$ wget -c https://github.com/ghl1024/supervisor-install/releases/download/V1.0/supervisor_install.tar.gz
+[root@hayden ~]$ curl -o ${PWD}/supervisor_install.tar.gz https://github.com/ghl1024/supervisor-install/releases/download/V1.0/supervisor_install.tar.gz
 
 [root@hayden ~]$ ll
 total 1316
@@ -120,7 +126,7 @@ root     11606     1  0 19:48 ?        00:00:00 /usr/bin/python /usr/bin/supervi
 [root@hayden ~]$ pwd
 /root
 
-[root@hayden ~]$ wget -c https://github.com/ghl1024/supervisor-install/releases/download/V1.0/supervisor_install.tar.gz
+[root@hayden ~]$ curl -o ${PWD}/supervisor_install.tar.gz https://github.com/ghl1024/supervisor-install/releases/download/V1.0/supervisor_install.tar.gz
 
 [root@hayden ~]$ ll
 total 1316
