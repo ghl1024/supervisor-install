@@ -57,7 +57,7 @@ ps -ef | grep "supervisord" | grep -v "grep"
 
 http://IP:9001
 
-[](https://cdn.jsdelivr.net/gh/ghl1024/supervisor-install/supervisor/supervisor.jpg)
+![](https://cdn.jsdelivr.net/gh/ghl1024/supervisor-install/supervisor/supervisor.jpg)
 
 ## :triangular_flag_on_post: 安装在`/home/supervisor`下示例
 
