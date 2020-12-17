@@ -35,11 +35,24 @@ else
     exit 1
 fi
 
+#Use systemd manage
+cat > /usr/lib/systemd/system/supervisord.service <<EOF
+[Unit]
+Description=Process Monitoring and Control Daemon
+After=rc-local.service nss-user-lookup.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/supervisord -c ${INSTALL_DIR}/etc/supervisord.conf
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
 # Configure supervisord
 if [ $? == 0 ];then
     mkdir -p ${INSTALL_DIR}/{etc,logs,tmp}
     mv supervisord.conf ${INSTALL_DIR}/etc/
-    mv supervisord.service /usr/lib/systemd/system/
     chmod +x /usr/lib/systemd/system/supervisord.service
     sed -i "s#Install_Dir#${INSTALL_DIR}#g" ${INSTALL_DIR}/etc/supervisord.conf
     sed -i "s#User#${USER}#g" ${INSTALL_DIR}/etc/supervisord.conf
