@@ -52,6 +52,7 @@ EOF
 # Configure supervisord
 if [ $? == 0 ];then
     mkdir -p ${INSTALL_DIR}/{etc,logs,tmp}
+    mkdir -p ${INSTALL_DIR}/etc/supervisord
     mv supervisord.conf ${INSTALL_DIR}/etc/
     chmod +x /usr/lib/systemd/system/supervisord.service
     sed -i "s#Install_Dir#${INSTALL_DIR}#g" ${INSTALL_DIR}/etc/supervisord.conf
@@ -70,6 +71,7 @@ if [ $? == 0 ];then
     echo =============================================
     echo "supervisord已启动"
     echo "安装目录为：${INSTALL_DIR}"
+    echo "被管理程序文件存放位置为：${INSTALL_DIR}/etc/supervisord"
     echo "systemd管理服务名称为：supervisord.service"
     echo "占用端口为：9001"
     echo =============================================
