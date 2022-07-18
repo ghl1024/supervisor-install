@@ -5,7 +5,9 @@
 ![stars](https://img.shields.io/github/stars/ghl1024/supervisor-install.svg)
 ![forks](https://img.shields.io/github/forks/ghl1024/supervisor-install.svg)
 
-#### 在 `CentOS7.x` 系统中一键安装 `supervisord` 服务，适用系统自带的python2.7版本，升级与否都可。
+# 在 `CentOS7.x` 系统中一键安装 `supervisord` 服务
+
+> 适用系统自带的python2.7版本，升级与否都可。
 
 | **软件** | 版本 |
 | :---: | :---: |
@@ -101,7 +103,7 @@ systemd管理服务名称为：supervisord.service
 
 [root@hayden supervisor]$ netstat -tnlp | grep "9001"
 tcp        0      0 0.0.0.0:9001            0.0.0.0:*               LISTEN      11606/python
-        
+
 [root@hayden supervisor]$ ps -ef | grep "supervisord" | grep -v "grep"
 root     11606     1  0 19:48 ?        00:00:00 /usr/bin/python /usr/bin/supervisord -c /home/supervisor/etc/supervisord.conf
 ```
@@ -147,7 +149,7 @@ systemd管理服务名称为：supervisord.service
            └─12548 /usr/bin/python /usr/bin/supervisord -c /opt/supervisor/etc/supervisord.conf
 
 [root@hayden supervisor]$ netstat -tnlp | grep "9001" | grep -v "grep"
-tcp        0      0 0.0.0.0:9001            0.0.0.0:*               LISTEN      12548/python        
+tcp        0      0 0.0.0.0:9001            0.0.0.0:*               LISTEN      12548/python
 [root@hayden supervisor]$ ps -ef | grep "supervisord" | grep -v "grep"
 root     12548     1  0 19:58 ?        00:00:00 /usr/bin/python /usr/bin/supervisord -c /opt/supervisor/etc/supervisord.conf
 ```
